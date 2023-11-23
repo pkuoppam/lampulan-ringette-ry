@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    color: #333; 
+    background-color: #f2f2f2; 
+}
+
+.sivu {
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#navigointi {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+#navigointi a {
+    color: #fff;
+    text-decoration: none;
+    padding: 1em;
+}
+
+#navigointi ul {
+    display: flex;
+}
+
+#navigointi ul li {
+    display: block;
+}
+
+#navigointi a:hover {
+    color: #e0e0e0;
+}
+
+.sivu {
+    background-color: #f2f2f2; 
+}
+
+#etusivu {
+    background-color: #f9f9f9; 
+}
+
+#yhdistys {
+    background-color: #f9f9f9; 
+}
+
+#ryhmät {
+    background-color: #f9f9f9; 
+}
+
+#yhteystiedot {
+    background-color: #f9f9f9; 
+}
+
+#footer {
+    background-color: rgba(0, 0, 0, 0.3); 
+    color: #fff; 
+    height: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

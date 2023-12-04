@@ -4,6 +4,7 @@
   <title>Etusivu</title>
   <link rel="stylesheet" href="styles.css">
   <meta charset="utf-8"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
 </head>
 <body>
   <div id="sivusto">
@@ -18,81 +19,9 @@
     <br><br><br><br>
     <div id="etusivu" class="sivu">
       <a href="https://www.ringette.fi" target="_blank"><img src="finlandLogo.jpg" alt="Ringette Finland"></a><br>
-  <p class="intro"><h2>Tervetuloa mukaan!</h2>
-        <br>
-        <h3>Harjoittelemme seuraavasti</h3>
-    <br>
-      <div class="calendar-container">
-        <div class="month" id="active">
-          <ul>
-            <li class="prev">&#10094;</li>
-            <li class="next">&#10095;</li>
-            <li class="text">November<br><span style="font-size:18px">2023</span></li>
-          </ul>
-        </div>
-        <div class="month">
-          <ul>
-            <li class="prev">&#10094;</li>
-            <li class="next">&#10095;</li>
-            <li class="text">December<br><span style="font-size:18px">2023</span></li>
-          </ul>
-        </div>
-
-        <ul class="weekdays">
-          <li>Ma</li>
-          <li>Ti</li>
-          <li>Ke</li>
-          <li>To</li>
-          <li>Pe</li>
-          <li>LA</li>
-          <li>Su</li>
-        </ul>
-
-        <ul class="days">
-          <li>30</li>
-          <li>31</li>
-          <li><b>1</b><div class="event">Edustus/SM-ringette klo 14:00-16:00</div></li>
-          <li><b>2</b><div class="event">D-nuoret klo 15:30-17:30</div></li>
-          <li><b>3</b><div class="event">E-nuoret klo 15:30-17:30</div></li>
-          <li><b>4</b><div class="event">F-nuoret klo 15:30-17:30</div></li>
-          <li><b>5</b><div class="event">ringettekoulu klo 15:30-17:30</div></li>
-          <li><b>6</b><div class="event">B-nuoret klo 15:30-17:30</div></li>
-          <li><b>7</b><div class="event">C-nuoret klo 15:30-17:30</div></li>
-          <li><span class="active">8</span><div class="event">Edustus/SM-ringette</div></li>
-          <li><b>9</b><div class="event">D-nuoret klo 15:30-17:30</div></li>
-          <li><b>10</b><div class="event">E-nuoret klo 15:30-17:30</div></li>
-          <li><b>11</b><div class="event">F-nuoret klo 15:30-17:30</div></li>
-          <li><b>12</b><div class="event">ringettekoulu klo 15:30-17:30</div></li>
-          <li><b>13</b><div class="event">B-nuoret klo 15:30-17:30</div></li>
-          <li><b>14</b><div class="event">C-nuoret klo 15:30-17:30</div></li>
-          <li><b>15</b><div class="event">Edustus/SM-ringette klo 15:30-17:30</div></li>
-          <li><b>16</b><div class="event">D-nuoret klo 15:30-17:30</div></li>
-          <li><b>17</b><div class="event">E-nuoret klo 15:30-17:30</div></li>
-          <li><b>18</b><div class="event">F-nuoret klo 15:30-17:30</div></li>
-          <li><b>19</b><div class="event">ringettekoulu klo 15:30-17:30</div></li>
-          <li><b>20</b><div class="event">B-nuoret klo 15:30-17:30</div></li>
-          <li><b>21</b><div class="event">C-nuoret klo 15:30-17:30</div></li>
-          <li><b>22</b><div class="event">Edustus/SM-ringette klo 15:30-17:30 </div></li>
-          <li><b>23</b><div class="event">D-nuoret klo 15:30-17:30</div></li>
-          <li><b>24</b><div class="event">E-nuoret klo 15:30-17:30</div></li>
-          <li><b>25</b><div class="event">F-nuoret klo 15:30-17:30</div></li>
-          <li><b>26</b><div class="event">ringettekoulu klo 15:30-17:30</div></li>
-          <li><b>27</b><div class="event">B-nuoret klo 15:30-17:30</div></li>
-          <li><b>28</b><div class="event">C-nuoret klo 15:30-17:30</div></li>
-          <li><b>29</b><div class="event">Edustus/SM-ringette klo 15:30-17:30</div></li>
-          <li><b>30</b><div class="event">D-nuoret klo 15:30-17:30</div></li>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
-          <li>6</li>
-          <li>7</li>
-          <li>8</li>
-          <li>9</li>
-          <li>10</li>
-        </ul>
-      </div>
+      <h2>Tervetuloa mukaan!</h2><br>
+      <h3>Harjoittelemme seuraavasti</h3><br><br>
+      <div id="kalenteri"></div> <!--Kalenterin lisäys etusivulle-->
     </div>
 
     <div id="tyhjä"></div>
@@ -103,5 +32,161 @@
       </p>
     </div>
   </div>
+  
+  <!--Lisää FullCalendarin JavaScript-tiedostot -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+  
+  <script>
+  $(document).ready(function() {
+  
+  // Aseta suomi locale moment.js:lle
+  moment.locale('fi');
+  
+  // Oletustapahtumat eri päiville
+  var defaultEvents = [
+    {
+      title: 'Harjoitus B-nuoret',
+      start: moment().startOf('day').add(18, 'hours'),
+      end: moment().startOf('day').add(20, 'hours')
+    },
+    {
+      title: 'Harjoitus E-nuoret',
+      start: moment().startOf('day').add(1, 'day').add(17, 'hours'),
+      end: moment().startOf('day').add(1, 'day').add(19, 'hours')
+    },
+    {
+      title: 'Harjoitus D-nuoret',
+      start: moment().startOf('day').add(2, 'days').add(16, 'hours'),
+      end: moment().startOf('day').add(2, 'days').add(18, 'hours')
+    },
+    {
+      title: 'Harjoitus Edustus',
+      start: moment().startOf('day').add(3, 'days').add(14, 'hours'),
+      end: moment().startOf('day').add(3, 'days').add(16, 'hours')
+    },
+    {
+      title: 'Harjoitus F-nuoret',
+      start: moment().startOf('day').add(4, 'days').add(16, 'hours'),
+      end: moment().startOf('day').add(4, 'days').add(17, 'hours')
+    },
+    {
+      title: 'Ringettekoulu',
+      start: moment().startOf('day').add(5, 'days').add(17, 'hours'),
+      end: moment().startOf('day').add(5, 'days').add(18, 'hours')
+    },
+    {
+      title: 'Harjoitus C-nuoret',
+      start: moment().startOf('day').add(6, 'days').add(15, 'hours'),
+      end: moment().startOf('day').add(6, 'days').add(17, 'hours')
+    },
+  ];
+
+  // Tarkistetaan onko selaimen "tallennustilassa" jo tapahtumat
+  var storedEvents = JSON.parse(localStorage.getItem('calendarEvents')) || [];
+
+  // Yhdistä tallennetut tapahtumat ja oletustapahtumat
+  var allEvents = storedEvents.concat(defaultEvents);
+
+  // Asetetaan fullCalendarin tekstit suomeksi (ainoastaan viikko ja päivä näkymän y-akselin aikamuoto väärä. sitä en saanut oikeaksi muutettua)
+    $('#kalenteri').fullCalendar({
+      locale: 'fi',
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      buttonText: {
+        today: 'Tänään',
+        month: 'Kuukausi',
+        week: 'Viikko',
+        day: 'Päivä'
+      },
+      editable: true,
+      timeFormat: 'H.mm', // Käytä 24-tunnin aikamuotoa
+      events: allEvents, 
+        
+    // Määrittelee viikonäkymän ja päivänäkymän päivämäärän esitystavan
+      views: {
+        week: {
+          columnFormat: 'dd D.M'
+        },
+        agendaDay: {
+          columnFormat: 'dd D.M'
+        }
+      },
+    // Tapahtumakäsittelijät
+      eventClick: function(event) {
+        var action = confirm('Valitse toiminto:\nOK: Muokkaa\nPeruuta: Poista tapahtuma\n');
+        if (action) {
+          // Muokkaa tapahtumaa
+          var title = prompt('Muokkaa tapahtuman nimeä:', event.title);
+          var start = prompt('Muokkaa tapahtuman alkuaikaa:', moment(event.start).format('DD.MM.YYYY H.mm'));
+          var end = prompt('Muokkaa tapahtuman loppuaikaa:', moment(event.end).format('DD.MM.YYYY H.mm'));
+        
+        if (title && start && end) {
+          event.title = title;
+          event.start = moment(start, 'DD.MM.YYYY H.mm');
+          event.end = moment(end, 'DD.MM.YYYY H.mm');
+          $('#kalenteri').fullCalendar('updateEvent', event);
+        }
+      } else {
+          // Poista tapahtuma
+        if (confirm('Haluatko varmasti poistaa tämän tapahtuman?')) {
+          $('#kalenteri').fullCalendar('removeEvents', event._id);
+
+          // Tallenna päivitetyt/poistetut tapahtumat selaimen paikalliseen tallennustilaan
+          var storedEvents = $('#kalenteri').fullCalendar('clientEvents').map(function(event) {
+            return {
+              id: event.id,
+              title: event.title,
+              start: event.start.format(),
+              end: event.end.format(),
+              allDay: event.allDay
+            };
+          });
+          localStorage.setItem('calendarEvents', JSON.stringify(storedEvents));
+
+          // Päivitä kalenteri näyttämään muutokset
+          $('#kalenteri').fullCalendar('refetchEvents');
+        }
+      }
+    },
+        selectable: true,
+        // Käsittelee uusien tapahtumien lisäyksen
+        select: function(start, end) {
+          var title = prompt('Anna tapahtuman nimi:');
+          var startTime = prompt('Anna tapahtuman alkuaika:');
+          var endTime = prompt('Anna tapahtuman loppuaika:');
+
+          if (title && startTime && endTime) {
+              start = moment(start.format('DD.MM.YYYY') + ' ' + startTime, 'DD.MM.YYYY H.mm');
+              end = moment(end.format('DD.MM.YYYY') + ' ' + endTime, 'DD.MM.YYYY H.mm');
+              
+              // Tarkistaa, ovatko alkuaika ja loppuaika eri päivillä
+              if (!start.isSame(end, 'day')) {
+                  // Jos ovat, aseta loppuaika samaksi päiväksi kuin alkuaika
+                  end.set({ 'year': start.year(), 'month': start.month(), 'date': start.date() });
+              }
+              // Lisää tapahtuman kalenteriin
+              $('#kalenteri').fullCalendar('renderEvent', {
+                  title: title,
+                  start: start,
+                  end: end,
+                  allDay: false
+              }, true);
+
+              // Tallentaa lisätyn tapahtuman paikalliseen tallennustilaan
+              var storedEvents = $('#kalenteri').fullCalendar('clientEvents').map(function(event) {
+                  return { title: event.title, start: event.start.format(), end: event.end.format(), allDay: event.allDay };
+              });
+              localStorage.setItem('calendarEvents', JSON.stringify(storedEvents));
+          }
+          $('#kalenteri').fullCalendar('unselect');
+        }
+      });
+    });
+  </script>
 </body>
 </html>

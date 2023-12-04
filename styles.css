@@ -88,7 +88,13 @@ body {
     align-items: center;
     width: 100%;
     position: relative;
+    display: none;
 }
+      
+#active {
+    display: block;
+}
+
 
 .month ul {
     list-style-type: none;

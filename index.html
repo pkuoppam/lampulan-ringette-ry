@@ -44,7 +44,7 @@
   // Aseta suomi locale moment.js:lle
   moment.locale('fi');
   
-  // Oletustapahtumat eri päiville
+  // Oletustapahtumat eri päiville.
   var defaultEvents = [
     {
       title: 'Harjoitus B-nuoret',
@@ -86,8 +86,14 @@
   // Tarkistetaan onko selaimen "tallennustilassa" jo tapahtumat
   var storedEvents = JSON.parse(localStorage.getItem('calendarEvents')) || [];
 
+  // Lisää oletustapahtumat vain, jos niitä ei ole vielä tallennettu
+  if (storedEvents.length === 0) {
+      storedEvents = storedEvents.concat(defaultEvents);
+      localStorage.setItem('calendarEvents', JSON.stringify(storedEvents));
+  }
+
   // Yhdistä tallennetut tapahtumat ja oletustapahtumat
-  var allEvents = storedEvents.concat(defaultEvents);
+  var allEvents = storedEvents;
 
   // Asetetaan fullCalendarin tekstit suomeksi (ainoastaan viikko ja päivä näkymän y-akselin aikamuoto väärä. sitä en saanut oikeaksi muutettua)
     $('#kalenteri').fullCalendar({
